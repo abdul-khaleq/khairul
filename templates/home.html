@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% load static %}
+{% block page_title %}Home Page{% endblock page_title %}
+{% block content %}
+    <div class="row d-flex justify-content-center align-items-center">
+        <div class="col-md-6">
+            <h2 class="display-3 fw-bold text-secondary">Welcome to Job Borad</h2>
+            <h5 class="text-info">
+                A job board is an online platform where employers list job vacancies and job seekers apply for positions. Renowned examples include Indeed, Glassdoor, and Careerjet. These platforms often offer features like resume databases for recruiters and company pages to showcase organizational culture and values.</h5>
+            <div>
+                <button class="btn btn-outline-warning">Apply Now</button>
+                <button class="btn btn-outline-warning mx-2">Explore More</button>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <img src="{% static 'images/job.png' %}" alt="">
+        </div>
+    </div>
+    <div class="row my-4">
+            <div class="d-flex">
+               <h3 class="text-success"> Filter by Job Category: </h3>
+            {% for service in services %}
+                <div class="">
+                    <a class="text-decoration-none btn btn-outline-primary mx-2" href="{% url "service_wise_name" service.id %}">{{service}}</a>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="row">
+        <h3 class="text-info">Results found : {{cars|length}}</h3>
+        {% for car in cars %}
+        <div class="col-md-4">
+            <div class="card border-0 shadow-lg p-3 mb-5 bg-white rounded">
+                <img src="{{ car.image.url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title">{{car.name}}</h5>
+                    <p class="card-text">{{car.description | truncatewords:10 }}</p>
+                    <a href="{% url "car_details" car.id %}" class="btn btn-info">view job details</a>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+{% endblock content %}

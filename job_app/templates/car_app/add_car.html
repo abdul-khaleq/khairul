@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block page_title %} {{type}} Page{% endblock page_title %}
+{% block title %}
+    <h2 class="text-center my-2">
+       {{type}} Car
+    </h2>
+{% endblock title %}
+
+{% block content %}
+    <form style="width: 50%;margin: auto;" method="post" enctype="multipart/form-data" novalidate>
+        {% csrf_token %}
+        <!-- {{ form | crispy }}-->
+        {% for field in form %}
+            <div>
+                <strong>{{field.label_tag}}</strong>
+            </div>
+            {{field}}
+            <div>
+                <small class="text-danger">{{field.errors | striptags}}</small>
+            </div>
+        {% endfor %}
+        <input type="submit" value="{{type}} Car" class="btn btn-success my-2">
+    </form>
+{% endblock content %}

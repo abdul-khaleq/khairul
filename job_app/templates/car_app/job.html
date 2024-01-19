@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% load crispy_forms_tags %}
+{% block page_title %}Car Details Page{% endblock page_title %}
+
+{% block title %}
+    <h2 class="text-center my-4">See {{car.name}} Details</h2>
+{% endblock title %}
+
+{% block content %}
+<form style="width: 50%;margin: auto;" method="post" enctype="multipart/form-data" >
+    {% csrf_token %}
+    <h3>{{form |crispy}}</h3>
+    <button type="submit">Submit</button>
+    </form>
+{% endblock  %}
+
+{% comment %} enctype="multipart/form-data" novalidate {% endcomment %}
