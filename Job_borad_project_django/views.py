@@ -5,10 +5,10 @@ from service_app.models import ServiceModel
 
 
 
-class CarListView(ListView):
+class JobListView(ListView):
     model = EmployeeModel
     template_name = 'home.html'
-    context_object_name = 'cars'
+    context_object_name = 'jobs'
 
     def get(self, request, *args, **kwargs):
         brand_slug = kwargs.get('brand_slug')

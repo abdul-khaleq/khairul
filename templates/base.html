@@ -52,7 +52,7 @@
             {% if request.user.is_authenticated %}
               {% if request.user.is_superuser %}
               <li class="nav-item">
-                <a class="nav-link" aria-current="page" href="{% url "add_car" %}">Add Job Post</a>
+                <a class="nav-link" aria-current="page" href="{% url "add_job" %}">Add Job Post</a>
               </li>
               {% endif%}
             <li class="nav-item">

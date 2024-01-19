@@ -111,29 +111,3 @@ class UserPasswordChangeView(PasswordChangeView):
         context = super().get_context_data(**kwargs)
         context["type"] = "Change Password"
         return context
-
-
-
-# Buy Now    
-def buy_now(request,id):
-    ordered_car = EmployeeModel.objects.get(id = id)
-
-    if ordered_car.quantity > 0:
-        ordered_car.quantity -= 1
-        ordered_car.save()
-
-        req_car = Dashboard.objects.get(user=request.user, car=ordered_car)
-
-        if req_car.exists():
-            order = req_car.first()
-            order.quantity += 1
-            order.save()
-            messages.success(request, 'Order placed succesfully')
-            return redirect('profile')
-        else:
-            order = Dashboard.objects.create(user=request.user, car=ordered_car,quantity = 1)
-            messages.success(request, 'Order placed succesfully')
-            return redirect('profile')
-    else:
-        messages.error(request, 'Car is not available due to low quantity.')
-        return render(request, 'car_app/car_details.html')

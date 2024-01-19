@@ -4,7 +4,7 @@
 {% block content %}
 <div class="text-center">
   <div class="d-flex justify-content-end align-items-center gap-2">
-    {% comment %} <a href="{% url " edit_profile" request.user.id %}"> {% endcomment %}
+    <a href="{% url "edit_profile" request.user.id %}">
       <button class="btn btn-primary mt-4">Edit Profiles</button>
     </a>
 
@@ -39,7 +39,7 @@
     <tr>
       <th scope="row">{{ forloop.counter }}</th>
       <td>{{job.user.first_name}} {{job.user.last_name}}</td>
-      <td>{{order.user.email}}</td>
+      <td>{{job.user.email}}</td>
       <td>{{job.job_name.name}}</td>
       <td>
         <a href="{{ job.Cv.url }}" download>

@@ -14,7 +14,7 @@ class EmployeeModel(models.Model):
     date_posted = models.DateTimeField(default=timezone.now, blank = True, null = True)
     salary = models.IntegerField()
     service = models.ForeignKey(ServiceModel, on_delete = models.CASCADE, blank = True, null = True)
-    image = models.ImageField(upload_to= 'car_app/media/uploads/')
+    image = models.ImageField(upload_to= 'job_app/media/uploads/')
     def __str__(self):
         return self.company_name
     

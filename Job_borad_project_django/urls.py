@@ -25,8 +25,8 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.CarListView.as_view(), name='home'),
-    path('service/<int:id>/', views.CarListView.as_view(), name='service_wise_name'),
+    path('', views.JobListView.as_view(), name='home'),
+    path('service/<int:id>/', views.JobListView.as_view(), name='service_wise_name'),
     path('auth/', include('auth_app.urls')),
     path('jon/', include('job_app.urls')),
 ]

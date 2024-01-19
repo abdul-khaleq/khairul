@@ -10,10 +10,10 @@ from django.core.mail import send_mail
 # Create your views here.
 
 # Add Car implementation
-class AddCreateView(CreateView):
+class AddJobCreateView(CreateView):
     model = EmployeeModel
     form_class = CarModelForm
-    template_name = 'car_app/add_car.html'
+    template_name = 'add_job.html'
     success_url = reverse_lazy('home')
 
     def get_context_data(self, **kwargs) :
@@ -30,10 +30,9 @@ class AddCreateView(CreateView):
         return super().form_valid(form)
     
 # Car details views
-from django.contrib.auth.models import User
-class CarDetailsView(DetailView):
+class JobDetailsView(DetailView):
     model = EmployeeModel
-    template_name = 'car_app/car_details.html'
+    template_name = 'job_details.html'
     
     def post(self,request,*args, **kwargs):
         job = self.get_object()
@@ -62,7 +61,7 @@ class CarDetailsView(DetailView):
 class JobSeekerCreateView(CreateView):
     model = Job_seeker
     form_class = jobsekeerFrom
-    template_name = 'car_app/job.html'
+    template_name = 'job.html'
     success_url = reverse_lazy('profile')
 
     def form_valid(self, form):

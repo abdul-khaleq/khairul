@@ -27,15 +27,15 @@
         </div>
     </div>
     <div class="row">
-        <h3 class="text-info">Results found : {{cars|length}}</h3>
-        {% for car in cars %}
+        <h3 class="text-info">Results found : {{jobs|length}}</h3>
+        {% for job in jobs %}
         <div class="col-md-4">
             <div class="card border-0 shadow-lg p-3 mb-5 bg-white rounded">
-                <img src="{{ car.image.url }}" class="card-img-top" alt="...">
+                <img src="{{ job.image.url }}" class="card-img-top" alt="...">
                 <div class="card-body">
-                    <h5 class="card-title">{{car.name}}</h5>
-                    <p class="card-text">{{car.description | truncatewords:10 }}</p>
-                    <a href="{% url "car_details" car.id %}" class="btn btn-info">view job details</a>
+                    <h5 class="card-title">{{job.name}}</h5>
+                    <p class="card-text">{{job.description | truncatewords:10 }}</p>
+                    <a href="{% url "job_details" job.id %}" class="btn btn-info">view job details</a>
                 </div>
             </div>
         </div>
